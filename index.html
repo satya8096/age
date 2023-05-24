@@ -1,0 +1,151 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Age Calculator</title>
+
+    <link rel="shortcut icon" href="./unnamed.png" type="image/x-icon">
+
+    <!-- Google Font Link -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation:wght@700&family=Itim&family=Kalam:wght@400;700&family=Libre+Baskerville&family=Merriweather&family=Niconne&family=Oleo+Script&family=Shrikhand&family=Signika+Negative:wght@700&display=swap" rel="stylesheet">
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 400px;
+            width: 500px;
+            background-color: rgb(175, 174, 174);
+            border-radius: 10px;
+            position: relative;
+        }
+        .heading{
+            font-size: 28px;
+            font-family: 'Signika Negative', sans-serif;
+            margin-bottom: 20px;
+            color: rgb(0, 0, 0);
+            letter-spacing: 1.5px;
+        }
+        .container #input{
+            font-size: 20px;
+            letter-spacing: 1.5px;
+            padding: 8px;
+            border: 0;
+            outline: 0;
+            border-radius: 5px;
+            width: 100%;
+            font-family: 'Signika Negative', sans-serif;
+        }
+        button{
+            position: relative;
+            font-size: 15px;
+            padding: 8px 15px;
+            outline: 0;
+            border: 0;
+            margin: 20px auto;
+            display: block;
+            border-radius: 10px;
+            cursor: pointer;
+            letter-spacing: 1.5px;
+            font-family: 'Signika Negative', sans-serif;
+        }
+        .display{
+            margin-top: 40px;
+        }
+        .display .message{
+            font-size: 19px;
+            color: rgb(0, 0, 0);
+            letter-spacing: 1.5px;
+            font-family: 'Signika Negative', sans-serif;
+        }
+
+
+
+        @media  screen and (max-width:500px) {
+            .container{
+                height: 300px;
+                width: 330px;
+            }
+            .heading{
+                font-size: 26px;
+            }
+            
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="head">
+            <p class="heading">Calculate Your Age Here!</p>
+        </div>
+        <div class="details">
+            <input type="text" name="input" id="input" placeholder="Enter Your Age" autocomplete="off">
+            <button onclick="clicked()">Calculate</button>
+        </div>
+        <div class="display">
+            <p class="message">Your Age Is Display Here!</p>
+        </div>
+    </div>
+
+
+    <script>
+
+        function clicked(){
+
+            let age = document.getElementById('input')
+
+            let today = new Date()
+
+            let year = today.getFullYear()
+
+            let deff = year-age.value
+
+            let condition = document.querySelector('.message')
+
+
+
+
+            if(age.value == 0){
+                condition.innerHTML = `Please Enter Your Year Of Birth.`
+            }
+            else if(age.value<=1920){
+                condition.innerHTML = `You Are Not A Man, Yor Are Alion!`
+            }
+            else if(age.value>1920 && age.value<year){
+                condition.innerHTML = `Your Age Is ${deff} Years Old.`
+            }
+            else if(age.value>year){
+                condition.innerHTML = `Please Enter below ${year} Year!`
+            }
+            else{
+                condition.innerHTML = `Please Enter Your Year Of Birth.`
+            }
+
+        }
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>
